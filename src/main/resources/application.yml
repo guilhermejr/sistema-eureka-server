@@ -1,0 +1,61 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name: eureka-server
+  config:
+    import: vault://
+  cloud:
+    vault:
+      host: ${VAULT_HOST:localhost}
+      port: 8200
+      scheme: http
+      uri: http://${VAULT_HOST:localhost}:8200
+      token: ${VAULT_TOKEN:hvs.VSlxeCypMevB7HLAYZ1hB73L}
+
+  boot:
+    admin:
+      client:
+        url: ${monitoramentoHost}
+        username: ${monitoramentoUser}
+        password: ${monitoramentoPass}
+        instance:
+          metadata:
+            user:
+              name: ${actuatorUser}
+              password: ${actuatorPass}
+
+sistema:
+  eureka:
+    host: ${eurekaServerHost}
+    login: ${eurekaServerUser}
+    senha: ${eurekaServerPass}
+
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: 'http://${sistema.eureka.login}:${sistema.eureka.senha}@${sistema.eureka.host}:8761/eureka'
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  info:
+    env:
+      enabled: true
+
+info:
+  app:
+    name: @project.name@
+    description: @project.description@
+    version: @project.version@
+    encoding: @project.build.sourceEncoding@
+    java:
+      version: @java.version@
