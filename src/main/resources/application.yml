@@ -11,7 +11,7 @@ spring:
       host: ${VAULT_HOST:localhost}
       port: ${VAULT_PORT:8200}
       scheme: ${VAULT_SCHEME:http}
-      uri: ${VAULT_SCHEME:http}://${VAULT_URL:localhost}:${VAULT_PORT:8200}
+      uri: ${VAULT_SCHEME:http}://${VAULT_HOST:localhost}:${VAULT_PORT:8200}
       token: ${VAULT_TOKEN:hvs.VSlxeCypMevB7HLAYZ1hB73L}
 
   boot:
