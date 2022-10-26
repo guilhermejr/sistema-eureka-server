@@ -45,8 +45,7 @@ public class WebSecurityConfig {
         UserDetails eureka = User.builder()
                 .username(eurekaLogin).password(passwordEncoder().encode(eurekaSenha)).roles("ADMIN").build();
         UserDetails actuator = User.builder()
-                .username(actuatorLogin).password(passwordEncoder().encode(actuatorSenha)).roles("ACTUATOR")
-                .build();
+                .username(actuatorLogin).password(passwordEncoder().encode(actuatorSenha)).roles("ACTUATOR").build();
         return new InMemoryUserDetailsManager(eureka, actuator);
     }
 
