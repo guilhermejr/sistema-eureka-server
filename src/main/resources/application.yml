@@ -9,9 +9,9 @@ spring:
   cloud:
     vault:
       host: ${VAULT_HOST:localhost}
-      port: 8200
-      scheme: http
-      uri: http://${VAULT_HOST:localhost}:8200
+      port: ${VAULT_PORT:8200}
+      scheme: ${VAULT_SCHEME:http}
+      uri: ${VAULT_SCHEME:http}://${VAULT_URL:localhost}:${VAULT_PORT:8200}
       token: ${VAULT_TOKEN:hvs.VSlxeCypMevB7HLAYZ1hB73L}
 
   boot:
