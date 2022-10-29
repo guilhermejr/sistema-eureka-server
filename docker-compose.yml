@@ -5,6 +5,8 @@ services:
     image: guilhermejr/sistema-eureka-server
     container_name: eureka-server
     restart: always
+    ports:
+      - "8761:8761"
 
 networks:
   default:
