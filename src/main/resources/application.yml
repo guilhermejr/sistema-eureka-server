@@ -38,6 +38,9 @@ eureka:
     register-with-eureka: false
     service-url:
       defaultZone: 'http://${sistema.eureka.login}:${sistema.eureka.senha}@${sistema.eureka.host}:8761/eureka'
+  instance:
+    hostname: ${eurekaServerHost}
+    non-secure-port: 80
 
 management:
   endpoint:
