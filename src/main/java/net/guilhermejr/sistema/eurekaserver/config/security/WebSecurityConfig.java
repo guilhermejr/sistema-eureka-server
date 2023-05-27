@@ -32,7 +32,7 @@ public class WebSecurityConfig {
                 .httpBasic()
                 .and()
                 .authorizeRequests()
-                .antMatchers("/actuator/**").hasRole("ACTUATOR")
+                .requestMatchers("/actuator/**").hasRole("ACTUATOR")
                 .anyRequest().authenticated()
                 .and()
                 .csrf().disable()
