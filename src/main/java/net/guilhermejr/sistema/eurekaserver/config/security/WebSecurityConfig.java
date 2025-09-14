@@ -34,7 +34,7 @@ public class WebSecurityConfig {
                 .httpBasic(Customizer.withDefaults())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/actuator/**").hasRole("ACTUATOR")
-                        .anyRequest().permitAll()
+                        .anyRequest().hasRole("ADMIN")
                 )
                 .csrf(AbstractHttpConfigurer::disable)
                 .formLogin(Customizer.withDefaults());
