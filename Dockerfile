@@ -7,5 +7,9 @@ COPY sistema-eureka-server.jar sistema-eureka-server.jar
 HEALTHCHECK --interval=30s --timeout=5s --start-period=90s --retries=3 \
   CMD curl -fsS http://localhost:8761/actuator/health | grep -q '"status":"UP"' || exit 1
 
+# Roda sem root. HOME em /tmp porque o usuario 10001 nao existe no /etc/passwd da imagem.
+ENV HOME=/tmp
+USER 10001:10001
+
 ENTRYPOINT ["java","-Dspring.profiles.active=prod","-jar","/sistema-eureka-server.jar"]
 EXPOSE 8761
