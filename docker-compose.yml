@@ -3,6 +3,7 @@ services:
     image: guilhermejr/sistema-eureka-server
     container_name: eureka-server
     restart: always
+    env_file: /home/guilhermejr/secrets/eureka-server.env
     ports:
       - "127.0.0.1:8761:8761"
 
